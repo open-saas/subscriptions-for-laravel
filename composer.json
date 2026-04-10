@@ -1,0 +1,42 @@
+{
+    "name": "open-saas/subscriptions-for-laravel",
+    "description": "A payment-agnostic subscription management package for Laravel.",
+    "keywords": ["laravel", "saas", "subscriptions"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "OpenSaas\\SubscriptionsForLaravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OpenSaas\\SubscriptionsForLaravel\\Tests\\": "tests/",
+            "App\\": "workbench/app/",
+            "Database\\Factories\\": "workbench/database/factories/",
+            "Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OpenSaas\\SubscriptionsForLaravel\\SubscriptionsForLaravelServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.5",
+        "illuminate/database": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": ["@clear", "@prepare"],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "test": "@php vendor/bin/phpunit"
+    }
+}
